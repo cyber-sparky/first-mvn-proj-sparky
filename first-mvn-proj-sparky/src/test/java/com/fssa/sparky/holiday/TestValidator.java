@@ -3,62 +3,63 @@ package com.fssa.sparky.holiday;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class TestCourseProgress {
+public class TestValidator {
 	
 	public static void main(String[] args) {
-		testValidName();
-		testPasswordValidator();
-		testCourseName();
-		testEnrolledCourse();
+		TestValidator test = new TestValidator();
+		test.testValidName();
+		test.testPasswordValidator();
+		test.testCourseName();
+		test.testEnrolledCourse();
 		
-		invalidEnrolledCourse();
-		invalidPassword();
-		invalidCourseName();
-		invalidUserName();
+		test.invalidEnrolledCourse();
+		test.invalidPassword();
+		test.invalidCourseName();
+		test.invalidUserName();
 	}
 	
 
 // valid Username
 
 	@Test
-	public static void testValidName() {
+	 void testValidName() {
 		Assertions.assertTrue(CourseValidator.nameValidator("Pranaw"));
 	}
 //  valid CourseName
 
 	@Test
-	public static void testCourseName() {
+	 void testCourseName() {
 		Assertions.assertTrue(CourseValidator.courseNameValidator("MobileHacking"));
 	}
 
 //  valid Password
 
 	@Test
-	public static void testPasswordValidator() {
+	void testPasswordValidator() {
 		Assertions.assertTrue(CourseValidator.passwordValidator("Pranaw@fssaB3c"));
 	}
 //  valid EnrolledCourse
 
 	@Test
-	public static void testEnrolledCourse() {
+	void testEnrolledCourse() {
 		String arr[] = { "MobileHacking" };
 		Assertions.assertTrue(CourseValidator.enrolledCourseValidator(arr));
 	}
 	
 	@Test
-	public static void invalidUserName() {
+	 void invalidUserName() {
 		Assertions.assertEquals(false, CourseValidator.nameValidator("   "));
 	}
 	@Test
-	public static void invalidCourseName() {
+	 void invalidCourseName() {
 		Assertions.assertEquals(false, CourseValidator.courseNameValidator("   "));
 	}
 	@Test
-	public static void invalidPassword() {
+	 void invalidPassword() {
 		Assertions.assertEquals(false, CourseValidator.passwordValidator("   "));
 	}
 	@Test
-	public static void invalidEnrolledCourse() {
+	 void invalidEnrolledCourse() {
 		String arr[] = { "  " };
 		Assertions.assertEquals(false, CourseValidator.enrolledCourseValidator(arr));
 	}

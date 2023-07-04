@@ -1,19 +1,20 @@
+//
 package day18.solved;
-
-/**
- * Validation Util for validating specific fields
- * 
- * @param age
- * @return
- */
-
-
-/**
- * Main class to test the validation Util class without using JUNIT
- * 
- * @author BharathwajSoundarara
- *
- */
+//
+///**
+// * Validation Util for validating specific fields
+// * 
+// * @param age
+// * @return
+// */
+//
+//
+///**
+// * Main class to test the validation Util class without using JUNIT
+// * 
+// * @author BharathwajSoundarara
+// *
+// */
 public class TestValidationUtilManual {
 	public static void main(String[] args) {
 		// test case to check if the valid age is validated correctly
@@ -22,7 +23,7 @@ public class TestValidationUtilManual {
 		// test case if exception is thrown if we send a negative or zero value
 		testNegativeValidateAge();
 	}
-
+//
 	/**
 	 * It will pass a positive number to validateAge method and print if the
 	 * test case has passed else it will print test case failed
@@ -54,4 +55,22 @@ public class TestValidationUtilManual {
 
 	}
 
-}
+//
+//
+///**
+// * Validation Util for validating specific fields
+// * 
+// * @param age
+// * @return
+// */
+class ValidationUtil {
+	public static boolean validateAge(int age) throws IllegalArgumentException {
+		if (age <= 0) {// Check if the age is a posotive value
+			throw new IllegalArgumentException("Invalid age");
+
+		} else {
+			return true;
+		}
+	}
+}}
+//
