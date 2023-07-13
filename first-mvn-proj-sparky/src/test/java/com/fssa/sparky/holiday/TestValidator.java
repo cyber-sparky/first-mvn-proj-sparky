@@ -7,28 +7,30 @@ public class TestValidator {
 	
 	public static void main(String[] args) {
 		TestValidator test = new TestValidator();
-		test.testValidName();
-		test.testPasswordValidator();
-		test.testCourseName();
-		test.testEnrolledCourse();
-		
-		test.invalidEnrolledCourse();
-		test.invalidPassword();
-		test.invalidCourseName();
-		test.invalidUserName();
+		test.validator();
 	}
 	
+	void validator() {
+		testValidName("Pra");
+		testCourseName();
+		testPasswordValidator();
+		testEnrolledCourse();
+		invalidUserName();
+		invalidCourseName();
+		invalidPassword();
+		invalidEnrolledCourse();
+	}
 
 // valid Username
 
 	@Test
-	 void testValidName() {
-		Assertions.assertTrue(CourseValidator.nameValidator("Pranaw"));
+	 void testValidName(String name) {
+		Assertions.assertTrue(CourseValidator.nameValidator(name));
 	}
 //  valid CourseName
 
 	@Test
-	 void testCourseName() {
+	 void testCourseName(String ) {
 		Assertions.assertTrue(CourseValidator.courseNameValidator("MobileHacking"));
 	}
 
