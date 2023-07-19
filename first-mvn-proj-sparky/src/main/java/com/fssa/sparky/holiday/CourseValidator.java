@@ -5,17 +5,22 @@ import java.util.regex.Pattern;
 
 public class CourseValidator {
 	public static void main(String[] args) {
+//		TODO : add a validator method which accept 
 		Course course = new Course();
+		validate(course);
+	}
+
+	public static boolean validate(Course course) {
 		course.setCourseName("MobileHacking");
 		course.setUserName("Pranaw");
 		course.setEnrolledCourses("MobileHacking");
 		course.setPassword("Pranaw@fssaB3c");
-		
-		
+
 		nameValidator(course.getUserName());
 		passwordValidator(course.getPassword());
 		courseNameValidator(course.getCourseName());
 		enrolledCourseValidator(course.getEnrolledCourses());
+		return true;
 	}
 
 	public static boolean nameValidator(String name) throws IllegalArgumentException {
@@ -36,22 +41,21 @@ public class CourseValidator {
 		return true;
 
 	}
+
 	public static boolean passwordValidator(String password) throws IllegalArgumentException {
 
 		if (password == null || "".equals(password.trim())) {
 			throw new IllegalArgumentException("password cannot be empty or null");
 		}
 
-		String regex = "^(?=.*[0-9])"
-                + "(?=.*[a-z])(?=.*[A-Z])"
-                + "(?=.*[@#$%^&+=])"
-                + "(?=\\S+$).{8,20}$";
+		String regex = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,20}$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(password);
 		Boolean isMatch = matcher.matches();
 
 		if (!isMatch) {
-			throw new IllegalArgumentException("password should contain atleast an upperCase and an lowerCase letter, and contains at least 8 characters and at most 20 characters. special characters allowed :  !@#$%&*()-+=^.");
+			throw new IllegalArgumentException(
+					"password should contain atleast an upperCase and an lowerCase letter, and contains at least 8 characters and at most 20 characters. special characters allowed :  !@#$%&*()-+=^.");
 
 		}
 		return true;

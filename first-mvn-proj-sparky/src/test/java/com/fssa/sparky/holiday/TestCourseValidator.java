@@ -3,16 +3,16 @@ package com.fssa.sparky.holiday;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class TestValidator {
+public class TestCourseValidator {
 	
 	public static void main(String[] args) {
-		TestValidator test = new TestValidator();
+		TestCourseValidator test = new TestCourseValidator();
 		test.validator();
 	}
 	
 	void validator() {
 		testValidName("Pra");
-		testCourseName();
+		testCourseName("MobileHacking");
 		testPasswordValidator();
 		testEnrolledCourse();
 		invalidUserName();
@@ -30,8 +30,8 @@ public class TestValidator {
 //  valid CourseName
 
 	@Test
-	 void testCourseName(String ) {
-		Assertions.assertTrue(CourseValidator.courseNameValidator("MobileHacking"));
+	 void testCourseName(String courseName) {
+		Assertions.assertTrue(CourseValidator.courseNameValidator(courseName));
 	}
 
 //  valid Password
